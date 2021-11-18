@@ -1,0 +1,8 @@
+add_newline = false
+
+[character]
+success_symbol = "[PS >](bold green)"
+error_symbol   = "[PS >](bold red)"
+
+[python]
+disabled = true
