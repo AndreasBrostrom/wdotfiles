@@ -10,6 +10,7 @@ function global:gf()    { git fetch --all --prune }
 function global:gr()    { git rebase }
 function global:gu()    { git rebase origin/master }
 
+Remove-Alias gp -Force
 function global:gp()    { git stash }
 function global:gpp()   { git stash pop }
 
@@ -26,3 +27,6 @@ function global:gfrp()  { gp; grf }
 function global:gfrpp() { gfrp; gpp }
 
 function global:gcp()   { gp; gc }
+
+# Linux commands
+function global:cal { bash -c "cal $args" }
