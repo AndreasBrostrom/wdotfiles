@@ -5,28 +5,34 @@ Set-Alias -Name py -value python -Scope 'Global'
 # Git aliases
 function global:gs()    { git status }
 function global:gc()    { git checkout }
+function global:gcm()   { git checkout master }
+function global:gcpr()  { Write-Host '"git checkout-pr" is not implemented on windows.' }
 function global:gb()    { git branch }
 function global:gf()    { git fetch --all --prune }
 function global:gr()    { git rebase }
-function global:gu()    { git rebase origin/master }
-
+function global:grm()   { git rebase origin/main }
+function global:gpu     { git push }
+function global:gpuf    { git push fork }
+function global:gpuff   { git push --set-upstream fork $(git rev-parse --abbrev-ref HEAD) }
 Remove-Alias gp -Force
 function global:gp()    { git stash }
 function global:gpp()   { git stash pop }
 
-function global:gpu()   { git push }
-function global:gpuf    { git push fork }
-function global:gpuff   { git push --set-upstream fork $(git rev-parse --abbrev-ref HEAD) }
-
 function global:gfr()   { gf; gr }
-function global:grf()   { gfr }
-function global:gfu()   { gf; gu }
-function global:guf()   { gfu }
-
+function global:gfm()   { gf; grm }
 function global:gfrp()  { gp; grf }
 function global:gfrpp() { gfrp; gpp }
-
 function global:gcp()   { gp; gc }
+function global:gcpp()  { Write-Host '"eval gp; eval gc $1; eval gpp ;" is not implemented on windows.' }
+function global:gcmp    { gp; gcm }
+function global:gcmpp   { gp; gcm; gpp }
+function global:gcprfr  { Write-Host '"eval gp; eval gc $1; eval gpp ;" is not implemented on windows.' }
+function global:gclean  { Write-Host 'git clean script is not implemented on windows.' }
+
+# GitHub-Cli
+function global:ghc()   { gcpr }
+function global:ghr()   { gh pr review }
+function global:ghm()   { gh pr merge }
 
 # Linux commands
 function global:cal { bash -c "cal $args" }
