@@ -3,3 +3,9 @@
 [user]
 	name = AndreasBrostrom
 	email = andreas.brostrom.ce@gmail.com
+[core]
+	editor = nvim
+[alias]
+	root = rev-parse --show-toplevel
+[checkout]
+	defaultRemote = origin
