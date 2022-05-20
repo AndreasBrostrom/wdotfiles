@@ -8,30 +8,43 @@ function prompt { (Write-Host ("$pwd".replace("$($home)", "~")) -ForegroundColor
 $curren_path = ($pwd).path
 if (!(Compare-Object "$curren_path" "C:\Windows\system32")) { set-location "$env:userprofile" }
 
-# Windows dir macro extentions
-$FileHiddenPrefix = ".*"
-
-
-if ( Get-Module -ListAvailable -Name Get-ChildItemColor) {
-    if ($PSVersionTable.PSVersion.major -gt 6) {
-        function alias_fnc_ls { Get-ChildItemColorFormatWide $args }
-        Set-Alias -Name ls -Value alias_fnc_ls
+if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -eq $null ) {
+    if ( Get-Module -ListAvailable -Name Get-ChildItemColor ) {
+        if ($PSVersionTable.PSVersion.major -gt 6) {
+            function alias_fnc_ls { Get-ChildItemColorFormatWide $args }
+            Set-Alias -Name ls -Value alias_fnc_ls
+        }
+        function ll { Get-ChildItem $args -Force }
+        function la { Get-ChildItemColorFormatWide $args -Force }
+        function l  { Get-ChildItemColor $args }
+    } else {
+        if ($PSVersionTable.PSVersion.major -gt 6) {
+            function alias_fnc_ls { Get-ChildItem $args | Format-Wide -AutoSize }
+            Set-Alias -Name ls -Value alias_fnc_ls
+        }
+        function ll { Get-ChildItem $args -Force}
+        function la { Get-ChildItem $args -Force| Format-Wide -AutoSize }
+        function l  { Get-ChildItem $args }
     }
-    function ll { Get-ChildItem $args -Force }
-    function la { Get-ChildItemColorFormatWide $args -Force }
-    function l  { Get-ChildItemColor $args }
 } else {
+    # if you have core utills ls
     if ($PSVersionTable.PSVersion.major -gt 6) {
-        function alias_fnc_ls { Get-ChildItem $args | Format-Wide -AutoSize }
-        Set-Alias -Name ls -Value alias_fnc_ls
+        function application_alias_fnc_ls {
+            Invoke-Expression "$((Get-Command ls -CommandType "Application" | Select -First 1).Source) --color=auto $args"
+        }
+        Set-Alias -Name ls -Value application_alias_fnc_ls
     }
-    function ll { Get-ChildItem $args -Force}
-    function la { Get-ChildItem $args -Force| Format-Wide -AutoSize }
-    function l  { Get-ChildItem $args }
+    function ll   { ls -alF }
+    function lsl  { ls -lF }
+    function la   { ls -A }
+    function lsa  { la }
+    function l    { ls -CF }
+    function lr   { ls -ltrh }
+    function lra  { ls -ltrha }
 }
 
 # Minor aliases
-function clr { clear $args }
+Set-Alias -Name clr -Value clear
 
 # Windows Unix extentions
 function reboot { shutdown -r -t 0 $args }
