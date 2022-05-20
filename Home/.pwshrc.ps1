@@ -30,6 +30,9 @@ if ( Get-Module -ListAvailable -Name Get-ChildItemColor) {
     function l  { Get-ChildItem $args }
 }
 
+# Minor aliases
+function clr { clear $args }
+
 # Windows Unix extentions
 function reboot { shutdown -r -t 0 $args }
 function ifconfig { ipconfig /all $args }
