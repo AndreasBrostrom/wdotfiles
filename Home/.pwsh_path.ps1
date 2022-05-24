@@ -3,7 +3,7 @@ function PATH_TEST([string]$path="", [string]$scope="User") {
     if ( $path -eq "" ) { return $False }
     $CurrentPath = [Environment]::GetEnvironmentVariable('Path',$scope)
     $SplittedPath = $CurrentPath -split ';'
-    if ($SplittedPath.contains("$args")) {
+    if ($SplittedPath.contains("$path")) {
         return $True
     }
     return $False
