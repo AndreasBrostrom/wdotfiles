@@ -9,3 +9,5 @@
 	root = rev-parse --show-toplevel
 [checkout]
 	defaultRemote = origin
+[safe]
+	directory = *
