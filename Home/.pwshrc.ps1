@@ -34,13 +34,13 @@ if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -e
         }
         Set-Alias -Name ls -Value application_alias_fnc_ls
     }
-    function ll   { ls -alF }
-    function lsl  { ls -lF }
-    function la   { ls -A }
-    function lsa  { la }
-    function l    { ls -CF }
-    function lr   { ls -ltrh }
-    function lra  { ls -ltrha }
+    function ll   { Invoke-Expression "ls -alF $args" }
+    function lsl  { Invoke-Expression "ls -lF $args" }
+    function la   { Invoke-Expression "ls -A $args" }
+    function lsa  { Invoke-Expression "la $args" }
+    function l    { Invoke-Expression "ls -CF $args" }
+    function lr   { Invoke-Expression "ls -ltrh $args" }
+    function lra  { Invoke-Expression "ls -ltrha $args" }
 }
 
 # Minor aliases
