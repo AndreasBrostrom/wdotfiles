@@ -38,6 +38,4 @@ if ( $IsLinux ) {
     exit 0
 }
 
-
-
 Set-Location "$SCRIPT_DIR"
