@@ -1,5 +1,5 @@
 # Test paths if so they are not added if exist
-function PATH_TEST([string]$path="", [string]$scope="User") {
+function TEST_PATHENV([string]$path="", [string]$scope="User") {
     if ( $path -eq "" ) { return $False }
     $CurrentPath = [Environment]::GetEnvironmentVariable('Path',$scope)
     $SplittedPath = $CurrentPath -split ';'
@@ -10,4 +10,4 @@ function PATH_TEST([string]$path="", [string]$scope="User") {
 }
 
 # Home bin
-if( PATH_TEST "$env:userprofile\.bin" ) { $env:Path += ";$env:userprofile\.bin" }
+if( !(TEST_PATHENV "$env:userprofile\.bin") ) { $env:Path += ";$env:userprofile\.bin" }
