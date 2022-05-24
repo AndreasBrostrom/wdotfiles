@@ -48,7 +48,8 @@ Set-Alias -Name clr -Value clear
 
 # Windows Unix extentions
 function reboot { shutdown -r -t 0 $args }
-function ifconfig { ipconfig /all $args }
+Set-Alias -Name ifconfig -Value Get-NetIPConfiguration -Scope 'Global'
+
 
 # Aliases
 if (Test-Path "$env:userprofile\.pwsh_aliases.ps1" -PathType leaf) {
