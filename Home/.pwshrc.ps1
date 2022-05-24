@@ -11,26 +11,26 @@ if (!(Compare-Object "$curren_path" "C:\Windows\system32")) { set-location "$env
 if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -eq $null ) {
     if ( Get-Module -ListAvailable -Name Get-ChildItemColor ) {
         if ($PSVersionTable.PSVersion.major -gt 6) {
-            function alias_fnc_ls { Get-ChildItemColorFormatWide $args }
+            function alias_fnc_ls { Invoke-Expression "Get-ChildItemColorFormatWide $args" }
             Set-Alias -Name ls -Value alias_fnc_ls
         }
-        function ll { Get-ChildItem $args -Force }
-        function la { Get-ChildItemColorFormatWide $args -Force }
-        function l  { Get-ChildItemColor $args }
+        function ll { Invoke-Expression "Get-ChildItem $args -Force" }
+        function la { Invoke-Expression "Get-ChildItemColorFormatWide $args -Force" }
+        function l  { Invoke-Expression "Get-ChildItemColor $args" }
     } else {
         if ($PSVersionTable.PSVersion.major -gt 6) {
-            function alias_fnc_ls { Get-ChildItem $args | Format-Wide -AutoSize }
+            function alias_fnc_ls { Invoke-Expression "Get-ChildItem $args | Format-Wide -AutoSize" }
             Set-Alias -Name ls -Value alias_fnc_ls
         }
-        function ll { Get-ChildItem $args -Force}
-        function la { Get-ChildItem $args -Force| Format-Wide -AutoSize }
-        function l  { Get-ChildItem $args }
+        function ll { Invoke-Expression "Get-ChildItem $args -Force" }
+        function la { Invoke-Expression "Get-ChildItem $args -Force| Format-Wide -AutoSize" }
+        function l  { Invoke-Expression "Get-ChildItem $args" }
     }
 } else {
     # if you have core utills ls
     if ($PSVersionTable.PSVersion.major -gt 6) {
         function application_alias_fnc_ls {
-            Invoke-Expression "$((Get-Command ls -CommandType "Application" | Select -First 1).Source) --color=auto $args"
+            Invoke-Expression "$( (Get-Command ls -CommandType "Application" | Select -First 1).Source) --color=auto $args"
         }
         Set-Alias -Name ls -Value application_alias_fnc_ls
     }
