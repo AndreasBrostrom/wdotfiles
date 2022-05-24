@@ -1,5 +1,5 @@
 # Test paths if so they are not added if exist
-function PATH_TEST([string]$path="")[string]$scope="User" {
+function PATH_TEST([string]$path="", [string]$scope="User") {
     if ( $path -eq "" ) { return $False }
     $CurrentPath = [Environment]::GetEnvironmentVariable('Path',$scope)
     $SplittedPath = $CurrentPath -split ';'
