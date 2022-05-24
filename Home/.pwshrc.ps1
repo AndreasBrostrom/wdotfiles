@@ -63,8 +63,8 @@ if (Test-Path "$env:userprofile\.ps_aliases.ps1" -PathType leaf) {
 if (Test-Path "$env:userprofile\.pwsh_path.ps1" -PathType leaf) {
     . "$env:userprofile\.pwsh_path.ps1"
 }
-if (Test-Path "$env:userprofile\.pwsh_path.ps1" -PathType leaf) {
-    . "$env:userprofile\.pwsh_path.ps1"
+if (Test-Path "$env:userprofile\.ps_path.ps1" -PathType leaf) {
+    . "$env:userprofile\.ps_path.ps1"
 }
 
 Invoke-Expression (&starship init powershell)
