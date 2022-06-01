@@ -20,7 +20,7 @@ function global:gpp()   { git stash pop }
 
 function global:gfr()   { gf; gr }
 function global:gfm()   { gf; grm }
-function global:gfrp()  { gp; grf }
+function global:gfrp()  { gp; gfr }
 function global:gfrpp() { gfrp; gpp }
 function global:gcp()   { gp; gc }
 function global:gcpp()  { Write-Host '"eval gp; eval gc $1; eval gpp ;" is not implemented on windows.' }
