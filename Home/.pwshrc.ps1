@@ -68,4 +68,6 @@ if (Test-Path "$env:userprofile\.ps_path.ps1" -PathType leaf) {
     . "$env:userprofile\.ps_path.ps1"
 }
 
+$ENV:STARSHIP_CONFIG = "$HOME\pwsh_starship.toml"
+
 Invoke-Expression (&starship init powershell)
