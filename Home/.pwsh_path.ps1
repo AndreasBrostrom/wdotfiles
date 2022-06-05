@@ -1,13 +1,18 @@
 # Test paths if so they are not added if exist
-function TEST_PATHENV([string]$path="", [string]$scope="User") {
-    if ( $path -eq "" ) { return $False }
-    $CurrentPath = [Environment]::GetEnvironmentVariable('Path',$scope)
-    $SplittedPath = $CurrentPath -split ';'
-    if ($SplittedPath.contains("$path")) {
-        return $True
+function ADD_PATH_ENV([string]$path="", [string]$scope="User") {
+    function TEST_PATH_ENV([string]$path="", [string]$scope="User") {
+        if ( $path -eq "" ) { return $False }
+        $CurrentPath = [Environment]::GetEnvironmentVariable('Path', $scope)
+        $SplittedPath = $CurrentPath -split ';'
+        if ($SplittedPath.contains("$path")) {
+            return $True
+        }
+        return $False
     }
-    return $False
+    if (TEST_PATH_ENV $path $scope) {
+        $ENV:Path += $path
+    }
 }
 
 # Home bin
-if( !(TEST_PATHENV "$env:userprofile\.bin") ) { $env:Path += ";$env:userprofile\.bin" }
+ADD_PATH_ENV ";$env:userprofile\.bin"

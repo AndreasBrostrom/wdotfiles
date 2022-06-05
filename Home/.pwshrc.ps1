@@ -1,5 +1,5 @@
 # Set prompt title
-$host.ui.RawUI.WindowTitle = "Powershell Core"
+#$host.ui.RawUI.WindowTitle = "Powershell Core"
 
 # Set prompt to unix like
 function prompt { (Write-Host ("$pwd".replace("$($home)", "~")) -ForegroundColor Blue -NoNewline) + (Write-Host ' PS>' -ForegroundColor DarkGray -NoNewline) + ' '}
@@ -27,7 +27,7 @@ if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -e
         function l  { Invoke-Expression "Get-ChildItem $args" }
     }
 } else {
-    # if you have core utills ls
+    # if you have coreutils ls
     if ($PSVersionTable.PSVersion.major -gt 6) {
         function application_alias_fnc_ls {
             Invoke-Expression "$( (Get-Command ls -CommandType "Application" | Select -First 1).Source) --color=auto $args"
@@ -43,7 +43,8 @@ if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -e
     function lra  { Invoke-Expression "ls -ltrha $args" }
 }
 
-# Minor aliases
+Remove-Alias -Name rm
+Remove-Alias -Name rmdir
 Set-Alias -Name clr -Value clear
 
 # Windows Unix extentions

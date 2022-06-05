@@ -15,7 +15,7 @@ Get-ChildItem -Force -Directory -Recurse| Foreach-Object {
         if ( $DirPath.Contains('AppData') )       { return } # continue used for Foreach-Object
     }
     Write-Host " Creating $DirPath in directory..." -ForegroundColor "DarkGray"
-    New-Item -Path "$ENV:HOME" -Name "$DirPath" -ItemType "directory" -Force 2>&1 | out-null
+    New-Item -Path "$HOME" -Name "$DirPath" -ItemType "directory" -Force 2>&1 | out-null
 }
 
 Get-ChildItem -Force -File -Recurse | Foreach-Object {
@@ -28,7 +28,7 @@ Get-ChildItem -Force -File -Recurse | Foreach-Object {
         if ( $FileNamePath.Contains('AppData') )  { return } # continue used for Foreach-Object
     }
     Write-Host " Creating softlink for $FileName" -ForegroundColor "DarkGray"
-    New-Item -ItemType "SymbolicLink" -Path "$ENV:HOME/$FilenamePath" -Target $Fullpath -Force 2>&1 | out-null
+    New-Item -ItemType "SymbolicLink" -Path "$HOME/$FilenamePath" -Target $Fullpath -Force 2>&1 | out-null
 }
 
 Set-Location "$SCRIPT_DIR"
