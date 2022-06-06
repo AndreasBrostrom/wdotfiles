@@ -17,7 +17,9 @@ function global:grm()   { git rebase origin/main }
 function global:gpu     { git push }
 function global:gpuf    { git push fork }
 function global:gpuff   { git push --set-upstream fork $(git rev-parse --abbrev-ref HEAD) }
-Remove-Alias gp -Force
+if ($PSVersionTable.PSVersion.major -gt 6) {
+    Remove-Alias gp -Force
+}
 function global:gp()    { git stash }
 function global:gpp()   { git stash pop }
 

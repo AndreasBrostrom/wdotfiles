@@ -43,8 +43,10 @@ if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -e
     function lra  { Invoke-Expression "ls -ltrha $args" }
 }
 
-Remove-Alias -Name rm
-Remove-Alias -Name rmdir
+if ($PSVersionTable.PSVersion.major -gt 6) {
+    Remove-Alias -Name rm
+    Remove-Alias -Name rmdir
+}
 Set-Alias -Name clr -Value clear
 
 # Windows Unix extentions
