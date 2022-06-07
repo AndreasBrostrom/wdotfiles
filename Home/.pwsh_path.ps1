@@ -15,4 +15,4 @@ function ADD_PATH_ENV([string]$path="", [string]$scope="User") {
 }
 
 # Home bin
-ADD_PATH_ENV ";$env:userprofile\.bin"
+ADD_PATH_ENV ";$ENV:userprofile/.bin"

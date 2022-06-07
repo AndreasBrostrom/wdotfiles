@@ -4,9 +4,15 @@
 # Set prompt to unix like
 function prompt { (Write-Host ("$pwd".replace("$($home)", "~")) -ForegroundColor Blue -NoNewline) + (Write-Host ' PS>' -ForegroundColor DarkGray -NoNewline) + ' '}
 
+if ( $IsLinux ) {
+    $ENV:userprofile = $(Get-Variable HOME -valueOnly)
+    $ENV:USERPROFILE = $(Get-Variable HOME -valueOnly)
+}
+
+
 # Windows linux conversions
 $curren_path = ($pwd).path
-if (!(Compare-Object "$curren_path" "C:\Windows\system32")) { set-location "$env:userprofile" }
+if (!(Compare-Object "$curren_path" "C:/Windows/system32")) { set-location "$env:userprofile" }
 
 # LS handling
 if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -eq $null ) {
@@ -46,13 +52,13 @@ Set-Alias -Name ifconfig -Value Get-NetIPConfiguration -Scope 'Global'
 
 
 # Aliases and Path
-if (Test-Path "$env:userprofile\.pwsh_aliases.ps1" -PathType leaf) {
-    . "$env:userprofile\.pwsh_aliases.ps1"
+if (Test-Path "$ENV:userprofile/.pwsh_aliases.ps1" -PathType leaf) {
+    . "$ENV:userprofile/.pwsh_aliases.ps1"
 }
-if (Test-Path "$env:userprofile\.pwsh_path.ps1" -PathType leaf) {
-    . "$env:userprofile\.pwsh_path.ps1"
+if (Test-Path "$env:userprofile/.pwsh_path.ps1" -PathType leaf) {
+    . "$ENV:userprofile/.pwsh_path.ps1"
 }
 
-$ENV:STARSHIP_CONFIG = "$HOME\.config\pwsh_starship.toml"
+$ENV:STARSHIP_CONFIG = "$ENV:userprofile/.config/pwsh_starship.toml"
 
 Invoke-Expression (&starship init powershell)

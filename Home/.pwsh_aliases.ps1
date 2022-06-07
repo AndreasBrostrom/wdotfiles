@@ -22,8 +22,9 @@ function global:gpu     { git push }
 function global:gpuf    { git push fork }
 function global:gpuff   { git push --set-upstream fork $(git rev-parse --abbrev-ref HEAD) }
 if ($PSVersionTable.PSVersion.major -gt 6) {
-    Remove-Alias gp -Force
+    if (Test-Path alias:gp) { Remove-Alias gp -Force }
 }
+
 function global:gp()    { git stash }
 function global:gpp()   { git stash pop }
 
