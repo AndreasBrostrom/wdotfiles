@@ -1,9 +1,13 @@
-
+# Programs
 Set-Alias -Name vim -value nvim -Scope 'Global'
 Set-Alias -Name py -value python -Scope 'Global'
 
 Set-Alias -Name htop -value ntop -Scope 'Global'
 Set-Alias -Name top -value ntop -Scope 'Global'
+
+# Misc
+Set-Alias -Name clr -Value clear
+
 
 # Git aliases
 function global:gs()    { git status }

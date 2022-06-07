@@ -8,24 +8,15 @@ function prompt { (Write-Host ("$pwd".replace("$($home)", "~")) -ForegroundColor
 $curren_path = ($pwd).path
 if (!(Compare-Object "$curren_path" "C:\Windows\system32")) { set-location "$env:userprofile" }
 
+# LS handling
 if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -eq $null ) {
-    if ( Get-Module -ListAvailable -Name Get-ChildItemColor ) {
-        if ($PSVersionTable.PSVersion.major -gt 6) {
-            function alias_fnc_ls { Invoke-Expression "Get-ChildItemColorFormatWide $args" }
-            Set-Alias -Name ls -Value alias_fnc_ls
-        }
-        function ll { Invoke-Expression "Get-ChildItem $args -Force" }
-        function la { Invoke-Expression "Get-ChildItemColorFormatWide $args -Force" }
-        function l  { Invoke-Expression "Get-ChildItemColor $args" }
-    } else {
-        if ($PSVersionTable.PSVersion.major -gt 6) {
-            function alias_fnc_ls { Invoke-Expression "Get-ChildItem $args | Format-Wide -AutoSize" }
-            Set-Alias -Name ls -Value alias_fnc_ls
-        }
-        function ll { Invoke-Expression "Get-ChildItem $args -Force" }
-        function la { Invoke-Expression "Get-ChildItem $args -Force| Format-Wide -AutoSize" }
-        function l  { Invoke-Expression "Get-ChildItem $args" }
+    if ($PSVersionTable.PSVersion.major -gt 6) {
+        function alias_fnc_ls { Invoke-Expression "Get-ChildItem $args | Format-Wide -AutoSize" }
+        Set-Alias -Name ls -Value alias_fnc_ls
     }
+    function ll   { Invoke-Expression "Get-ChildItem $args -Force" }
+    function la   { Invoke-Expression "Get-ChildItem $args -Force| Format-Wide -AutoSize" }
+    function l    { Invoke-Expression "Get-ChildItem $args" }
 } else {
     # if you have coreutils ls
     if ($PSVersionTable.PSVersion.major -gt 6) {
@@ -44,30 +35,22 @@ if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -e
 }
 
 if ($PSVersionTable.PSVersion.major -gt 6) {
-    Remove-Alias -Name rm
-    Remove-Alias -Name rmdir
+    if ((Get-Command rm    -CommandType "Application" -ErrorAction SilentlyContinue) -eq $null ) { Remove-Alias -Name rm }
+    if ((Get-Command rmdir -CommandType "Application" -ErrorAction SilentlyContinue) -eq $null ) { Remove-Alias -Name rmdir }
 }
-Set-Alias -Name clr -Value clear
+
 
 # Windows Unix extentions
 function reboot { shutdown -r -t 0 $args }
 Set-Alias -Name ifconfig -Value Get-NetIPConfiguration -Scope 'Global'
 
 
-# Aliases
+# Aliases and Path
 if (Test-Path "$env:userprofile\.pwsh_aliases.ps1" -PathType leaf) {
     . "$env:userprofile\.pwsh_aliases.ps1"
 }
-if (Test-Path "$env:userprofile\.ps_aliases.ps1" -PathType leaf) {
-    . "$env:userprofile\.ps_aliases.ps1"
-}
-
-# Path
 if (Test-Path "$env:userprofile\.pwsh_path.ps1" -PathType leaf) {
     . "$env:userprofile\.pwsh_path.ps1"
-}
-if (Test-Path "$env:userprofile\.ps_path.ps1" -PathType leaf) {
-    . "$env:userprofile\.ps_path.ps1"
 }
 
 $ENV:STARSHIP_CONFIG = "$HOME\.config\pwsh_starship.toml"
