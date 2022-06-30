@@ -1,13 +1,17 @@
 [credential]
 	helper = manager-core
+[safe]
+	directory = *
+[core]
+	editor = nvim
 [user]
 	name = AndreasBrostrom
 	email = andreas.brostrom.ce@gmail.com
-[core]
-	editor = nvim
 [alias]
 	root = rev-parse --show-toplevel
+[init]
+	defaultBranch = main
 [checkout]
 	defaultRemote = origin
-[safe]
-	directory = *
+[pull]
+	rebase = true
