@@ -5,7 +5,7 @@
 function prompt { (Write-Host ("$pwd".replace("$($home)", "~")) -ForegroundColor Blue -NoNewline) + (Write-Host ' PS>' -ForegroundColor DarkGray -NoNewline) + ' '}
 
 if ( $IsLinux ) {
-    $ENV:userprofile = $(Get-Variable HOME -valueOnly)
+    $ENV:USERPROFILE = $(Get-Variable HOME -valueOnly)
     $ENV:USERPROFILE = $(Get-Variable HOME -valueOnly)
 }
 
@@ -52,13 +52,13 @@ Set-Alias -Name ifconfig -Value Get-NetIPConfiguration -Scope 'Global'
 
 
 # Aliases and Path
-if (Test-Path "$ENV:userprofile/.pwsh_aliases.ps1" -PathType leaf) {
-    . "$ENV:userprofile/.pwsh_aliases.ps1"
+if (Test-Path "$ENV:USERPROFILE/.pwsh_aliases.ps1" -PathType leaf) {
+    . "$ENV:USERPROFILE/.pwsh_aliases.ps1"
 }
-if (Test-Path "$env:userprofile/.pwsh_path.ps1" -PathType leaf) {
-    . "$ENV:userprofile/.pwsh_path.ps1"
+if (Test-Path "$env:USERPROFILE/.pwsh_path.ps1" -PathType leaf) {
+    . "$ENV:USERPROFILE/.pwsh_path.ps1"
 }
 
-$ENV:STARSHIP_CONFIG = "$ENV:userprofile/.config/pwsh_starship.toml"
+$ENV:STARSHIP_CONFIG = "$ENV:LOCALAPPDATA/starship/starship.toml"
 
 Invoke-Expression (&starship init powershell)
