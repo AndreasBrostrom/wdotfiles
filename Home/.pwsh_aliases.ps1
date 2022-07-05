@@ -11,8 +11,8 @@ Set-Alias -Name clr -Value clear
 
 # Git aliases
 if ($PSVersionTable.PSVersion.major -gt 6) {
-    Remove-Alias gp -Force
-    Remove-Alias gcm -Force
+    if (Test-Path alias:gp) { Remove-Alias gp -Force }
+    if (Test-Path alias:gcm) { Remove-Alias gcm -Force }
 }
 
 function global:gs()    { git status }

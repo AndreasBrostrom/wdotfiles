@@ -6,7 +6,6 @@ function prompt { (Write-Host ("$pwd".replace("$($home)", "~")) -ForegroundColor
 
 if ( $IsLinux ) {
     $ENV:USERPROFILE = $(Get-Variable HOME -valueOnly)
-    $ENV:USERPROFILE = $(Get-Variable HOME -valueOnly)
 }
 
 
@@ -47,7 +46,7 @@ if ($PSVersionTable.PSVersion.major -gt 6) {
 
 #Remove Aliases
 if ($PSVersionTable.PSVersion.major -gt 6) {
-    Remove-Alias sl -Force
+    if (Test-Path alias:sl) { Remove-Alias sl -Force }
 }
 
 
