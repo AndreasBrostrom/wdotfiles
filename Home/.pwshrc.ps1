@@ -45,6 +45,11 @@ if ($PSVersionTable.PSVersion.major -gt 6) {
     if ((Get-Command rmdir -CommandType "Application" -ErrorAction SilentlyContinue) -eq $null ) { Remove-Alias -Name rmdir }
 }
 
+#Remove Aliases
+if ($PSVersionTable.PSVersion.major -gt 6) {
+    Remove-Alias sl -Force
+}
+
 
 # Windows Unix extentions
 function reboot { shutdown -r -t 0 $args }
