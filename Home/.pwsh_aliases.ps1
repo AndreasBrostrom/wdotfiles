@@ -18,7 +18,7 @@ if ($PSVersionTable.PSVersion.major -gt 6) {
 function global:gs()    { git status }
 function global:gc()    { git checkout }
 function global:gcm()   { git checkout $(split-path ( git symbolic-ref "refs/remotes/origin/HEAD" ) -Leaf) }
-function global:gcpr()  { Write-Host '"git checkout-pr" is not implemented on windows.' }
+function global:gcpr()  { gh pr checkout }
 function global:gb()    { git branch }
 function global:gf()    { git fetch --all --prune }
 function global:gr()    { git rebase }
