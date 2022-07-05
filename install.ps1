@@ -43,7 +43,7 @@ if (Test-Path -Path "$SCRIPT_DIR/../secure/ssh") {
         $FileName = $_.Name
         Write-Host " Copying $FileName" -ForegroundColor "DarkGray"
         Copy-Item $FileName -Destination "$HOME/.ssh"
-    }    
+    }
 }
 
 Set-Location "$SCRIPT_DIR"

@@ -2,12 +2,12 @@
 #$host.ui.RawUI.WindowTitle = "Powershell Core"
 
 # Set prompt to unix like
-function prompt { (Write-Host ("$pwd".replace("$($home)", "~")) -ForegroundColor Blue -NoNewline) + (Write-Host ' PS>' -ForegroundColor DarkGray -NoNewline) + ' '}
+#function prompt { (Write-Host ("$pwd".replace("$($home)", "~")) -ForegroundColor Blue -NoNewline) + (Write-Host ' PS>' -ForegroundColor DarkGray -NoNewline) + ' '}
 
 if ( $IsLinux ) {
-    $ENV:USERPROFILE = $(Get-Variable HOME -valueOnly)
+    $ENV:USERPROFILE = $(Get-Variable HOME -valueOnly)              # assume homefolder folder
+    $ENV:LOCALAPPDATA = "$(Get-Variable HOME -valueOnly)/.config"   # assume config folder
 }
-
 
 # Windows linux conversions
 $curren_path = ($pwd).path
@@ -63,6 +63,6 @@ if (Test-Path "$env:USERPROFILE/.pwsh_path.ps1" -PathType leaf) {
     . "$ENV:USERPROFILE/.pwsh_path.ps1"
 }
 
-$ENV:STARSHIP_CONFIG = "$ENV:LOCALAPPDATA/starship/starship.toml"
+$ENV:STARSHIP_CONFIG = "$ENV:LOCALAPPDATA/starship_pwsh.toml"
 
 Invoke-Expression (&starship init powershell)
