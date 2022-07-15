@@ -11,6 +11,7 @@ Set-Alias -Name clr -Value clear
 
 # Git aliases
 if ($PSVersionTable.PSVersion.major -gt 6) {
+    if (Test-Path alias:gc) { Remove-Alias gc -Force }
     if (Test-Path alias:gp) { Remove-Alias gp -Force }
     if (Test-Path alias:gcm) { Remove-Alias gcm -Force }
 }
@@ -40,6 +41,8 @@ function global:gcmp    { gp; gcm }
 function global:gcmpp   { gp; gcm; gpp }
 function global:gcprfr  { Write-Host '"eval gp; eval gc $1; eval gpp ;" is not implemented on windows.' }
 function global:gclean  { Write-Host 'git clean script is not implemented on windows.' }
+
+function global:gtar    { git ls-files -m | tar -cvf unsraged.tar -T - }
 
 # GitHub-Cli
 function global:ghc()   { gcpr }
