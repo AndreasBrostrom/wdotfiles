@@ -8,6 +8,17 @@ Set-Alias -Name top -value ntop -Scope 'Global'
 # Misc
 Set-Alias -Name clr -Value clear
 
+# Extended ls
+function global:cdls() {
+    [string]$path = $args[0]
+    cd -Path $path
+    ls
+}
+function global:cdll() {
+    [string]$path = $args[0]
+    cd -Path $path
+    ll
+}
 
 # Git aliases
 if ($PSVersionTable.PSVersion.major -gt 6) {
