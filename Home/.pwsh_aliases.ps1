@@ -29,12 +29,12 @@ if ($PSVersionTable.PSVersion.major -gt 6) {
 
 function global:gs()        { git status $args }
 function global:gc()        { git checkout $args }
-function global:gcm()       { git checkout $(split-path ( git symbolic-ref "refs/remotes/origin/HEAD" ) -Leaf) }
+function global:gcm()       { git checkout $(split-path $( git symbolic-ref "refs/remotes/origin/HEAD" ) -Leaf) $args }
 function global:gcpr()      { gh pr checkout $args }
 function global:gb()        { git branch $args }
 function global:gf()        { git fetch --all --prune $args }
 function global:gr()        { git rebase $args }
-function global:grm()       { git rebase origin/main $args }
+function global:grm()       { git rebase $(split-path $( git symbolic-ref "refs/remotes/origin/HEAD" ) -Leaf) $args }
 function global:gpu()       { git push $args }
 function global:gpuf()      { git push fork $args }
 function global:gpuff()     { git push --set-upstream fork $(git rev-parse --abbrev-ref HEAD) $args }
@@ -43,6 +43,7 @@ function global:gp()        { git stash $args }
 function global:gpp()       { git stash pop $args }
 
 function global:gfr()       { gf; gr $args }
+function global:gfrm()      { gf; grm $args }
 function global:gfm()       { gf; grm $args }
 function global:gfrp()      { gp; gfr $args }
 function global:gfrpp()     { gfrp; gpp }
