@@ -1,5 +1,9 @@
 # Set prompt title
-#$host.ui.RawUI.WindowTitle = "Powershell Core"
+if ( [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")) {
+    $host.ui.RawUI.WindowTitle = "Administrator: Powershell Core"
+} else {
+    $host.ui.RawUI.WindowTitle = "$ENV:USERNAME: Powershell Core"
+}
 
 # Set prompt to unix like
 #function prompt { (Write-Host ("$pwd".replace("$($home)", "~")) -ForegroundColor Blue -NoNewline) + (Write-Host ' PS>' -ForegroundColor DarkGray -NoNewline) + ' '}
