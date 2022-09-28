@@ -1,14 +1,14 @@
 # Set prompt title
-if ( [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")) {
-    $host.ui.RawUI.WindowTitle = "Administrator: Powershell Core"
-} else {
-    $host.ui.RawUI.WindowTitle = "$ENV:USERNAME: Powershell Core"
+if ( !$IsLinux ) {
+    if ( [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")) {
+        $host.ui.RawUI.WindowTitle = "Administrator: Powershell Core"
+    } else {
+        $host.ui.RawUI.WindowTitle = "$ENV:USERNAME: Powershell Core"
+    }
 }
 
-# Set prompt to unix like
-#function prompt { (Write-Host ("$pwd".replace("$($home)", "~")) -ForegroundColor Blue -NoNewline) + (Write-Host ' PS>' -ForegroundColor DarkGray -NoNewline) + ' '}
-
 if ( $IsLinux ) {
+    $ENV:USERNAME = $ENV:USER
     $ENV:USERPROFILE = $(Get-Variable HOME -valueOnly)              # assume homefolder folder
     $ENV:LOCALAPPDATA = "$(Get-Variable HOME -valueOnly)/.config"   # assume config folder
 }
