@@ -8,14 +8,19 @@
 [user]
 	name = AndreasBrostrom
 	email = andreas.brostrom.ce@gmail.com
+	signingkey = 174A7636218AC9E8
 [alias]
 	root = rev-parse --show-toplevel
+	ccl = rev-parse --verify HEAD
+	ccs = rev-parse --short HEAD
 [init]
 	defaultBranch = main
 [checkout]
 	defaultRemote = origin
 [pull]
 	rebase = true
+[commit]
+	gpgsign = true
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
