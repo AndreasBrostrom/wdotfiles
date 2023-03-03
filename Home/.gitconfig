@@ -19,10 +19,6 @@
 	defaultRemote = origin
 [pull]
 	rebase = true
-[commit]
-	gpgsign = true
-[gpg]
-	program = /c/Programs/lib/scoop/bin/gpg.exe
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
