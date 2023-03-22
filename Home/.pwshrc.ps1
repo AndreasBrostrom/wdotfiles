@@ -66,6 +66,9 @@ if (Test-Path "$ENV:USERPROFILE/.pwsh_aliases.ps1" -PathType leaf) {
 if (Test-Path "$env:USERPROFILE/.pwsh_path.ps1" -PathType leaf) {
     . "$ENV:USERPROFILE/.pwsh_path.ps1"
 }
+if (Test-Path "$env:USERPROFILE/.pwsh_office.ps1" -PathType leaf) {
+    . "$ENV:USERPROFILE/.pwsh_office.ps1"
+}
 
 $ENV:STARSHIP_CONFIG = "$ENV:LOCALAPPDATA/starship_pwsh.toml"
 
