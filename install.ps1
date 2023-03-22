@@ -19,8 +19,8 @@ Get-ChildItem -Force -File -Recurse | Foreach-Object {
         if ( $FileNamePath.Contains('AppData') )  { return } # continue used for Foreach-Object
     }
     Write-Host " Setting up path to $(Split-Path "$HOME/$FilenamePath")" -ForegroundColor "DarkGray"
-    Write-Host " Creating softlink for $FileName" -ForegroundColor "DarkGray"
     New-Item -ItemType "Directory" -Path $(Split-Path "$HOME/$FilenamePath") -Force 2>&1 | out-null
+    Write-Host " Creating softlink for $FileName" -ForegroundColor "DarkGray"
     New-Item -ItemType "SymbolicLink" -Path "$HOME/$FilenamePath" -Target $Fullpath -Force 2>&1 | out-null
 }
 
