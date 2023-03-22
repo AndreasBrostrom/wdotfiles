@@ -40,8 +40,13 @@
             "keys": "alt+8"
         },
         {
-            "command": "closePane",
-            "keys": "ctrl+d"
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
         },
         {
             "command": "unbound",
@@ -62,6 +67,10 @@
                 "index": 2
             },
             "keys": "alt+3"
+        },
+        {
+            "command": "closePane",
+            "keys": "ctrl+d"
         },
         {
             "command": "find",
@@ -95,18 +104,17 @@
             "command": 
             {
                 "action": "switchToTab",
-                "index": 8
+                "index": 6
             },
-            "keys": "alt+9"
+            "keys": "alt+7"
         },
         {
             "command": 
             {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
+                "action": "switchToTab",
+                "index": 8
             },
-            "keys": "alt+shift+d"
+            "keys": "alt+9"
         },
         {
             "command": 
@@ -123,14 +131,6 @@
                 "index": 1
             },
             "keys": "alt+2"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 6
-            },
-            "keys": "alt+7"
         },
         {
             "command": 
@@ -154,7 +154,7 @@
             "font": 
             {
                 "face": "DejaVuSansMono Nerd Font Mono",
-                "size": 10
+                "size": 10.0
             }
         },
         "list": 
@@ -184,12 +184,18 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": true,
+                "name": "Ubuntu",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+            },
+            {
+                "commandline": "C:\\Windows\\system32\\wsl.exe -d Arch",
+                "guid": "{12126dd9-2691-4f1c-91f4-9d4b6505a8fd}",
                 "hidden": false,
                 "icon": "C:\\Programs\\Lib\\WSL_Arch\\icon.ico",
                 "name": "Arch",
-                "source": "Windows.Terminal.Wsl",
-                "tabTitle": "Arch Linux"
+                "startingDirectory": "~"
             }
         ]
     },
@@ -380,6 +386,29 @@
             "yellow": "#C4A000"
         },
         {
+            "background": "#300A24",
+            "black": "#171421",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#08458F",
+            "brightCyan": "#2C9FB3",
+            "brightGreen": "#26A269",
+            "brightPurple": "#A347BA",
+            "brightRed": "#C01C28",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#A2734C",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#26A269",
+            "name": "Ubuntu-ColorScheme",
+            "purple": "#881798",
+            "red": "#C21A23",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#A2734C"
+        },
+        {
             "background": "#000000",
             "black": "#000000",
             "blue": "#000080",
@@ -402,5 +431,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "themes": []
 }
