@@ -3,7 +3,7 @@ if ( !$IsLinux ) {
     if ( [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")) {
         $host.ui.RawUI.WindowTitle = "Administrator: PowerShell Core"
     } else {
-        $host.ui.RawUI.WindowTitle = "$ENV:USERNAME: PowerShell Core"
+        $host.ui.RawUI.WindowTitle = "PowerShell Core"
     }
 }
 
