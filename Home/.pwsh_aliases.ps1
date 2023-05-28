@@ -5,8 +5,16 @@ Set-Alias -Name py -value python -Scope 'Global'
 Set-Alias -Name htop -value ntop -Scope 'Global'
 Set-Alias -Name top -value ntop -Scope 'Global'
 
+
 # Misc
 Set-Alias -Name clr -Value clear
+function global:pkill() {
+    Stop-Process -force -name $args
+}
+function global:skill() {
+    Stop-Service -force -name $args
+}
+
 
 # Extended ls
 function global:cdls() {
@@ -19,6 +27,7 @@ function global:cdll() {
     cd -Path $path
     ll
 }
+
 
 # Git aliases
 if ($PSVersionTable.PSVersion.major -gt 6) {
@@ -60,6 +69,7 @@ function global:gtar()      { git ls-files -m | tar -cvf unsraged.tar -T - }
 function global:ghc()       { gcpr }
 function global:ghr()       { gh pr review }
 function global:ghm()       { gh pr merge }
+
 
 # Linux commands
 function global:cal { bash -c "cal $args" }
