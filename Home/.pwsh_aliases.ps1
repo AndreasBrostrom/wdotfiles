@@ -9,10 +9,10 @@ Set-Alias -Name top -value ntop -Scope 'Global'
 # Misc
 Set-Alias -Name clr -Value clear
 function global:pkill() {
-    Stop-Process -force -name $args
+    sudo Stop-Process -force -name $args
 }
 function global:skill() {
-    Stop-Service -force -name $args
+    sudo Stop-Service -force -name $args
 }
 
 
