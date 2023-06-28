@@ -55,7 +55,7 @@ if ($PSVersionTable.PSVersion.major -gt 6) {
 
 
 # Windows Unix extentions
-function reboot { shutdown -r -t 0 $args }
+function reboot { shutdown /r /t 0 $args }
 Set-Alias -Name ifconfig -Value Get-NetIPConfiguration -Scope 'Global'
 
 
