@@ -26,10 +26,11 @@
         {
             "command": 
             {
-                "action": "switchToTab",
-                "index": 7
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
             },
-            "keys": "alt+8"
+            "keys": "alt+shift+d"
         },
         {
             "command": "unbound",
@@ -46,11 +47,10 @@
         {
             "command": 
             {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
+                "action": "switchToTab",
+                "index": 7
             },
-            "keys": "alt+shift+d"
+            "keys": "alt+8"
         },
         {
             "command": 
@@ -87,6 +87,12 @@
         {
             "command": 
             {
+                "action": "globalSummon"
+            }
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "down"
             },
@@ -96,17 +102,17 @@
             "command": 
             {
                 "action": "switchToTab",
-                "index": 6
+                "index": 5
             },
-            "keys": "alt+7"
+            "keys": "alt+6"
         },
         {
             "command": 
             {
                 "action": "switchToTab",
-                "index": 5
+                "index": 6
             },
-            "keys": "alt+6"
+            "keys": "alt+7"
         },
         {
             "command": 
@@ -131,12 +137,6 @@
                 "index": 1
             },
             "keys": "alt+2"
-        },
-        {
-            "command": 
-            {
-                "action": "globalSummon"
-            }
         }
     ],
     "confirmCloseAllTabs": false,
@@ -146,6 +146,12 @@
     "focusFollowMouse": true,
     "initialCols": 164,
     "initialRows": 50,
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": 
@@ -187,13 +193,14 @@
                 "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
                 "hidden": true,
                 "name": "Ubuntu",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
+                "startingDirectory": "~"
             },
             {
-                "commandline": "C:\\Windows\\system32\\wsl.exe -d Arch",
+                "commandline": "C:\\Windows\\system32\\wsl.exe -d arch",
                 "guid": "{12126dd9-2691-4f1c-91f4-9d4b6505a8fd}",
                 "hidden": false,
-                "icon": "C:\\Programs\\Lib\\WSL_Arch\\icon.ico",
+                "icon": "C:\\Programs\\Src\\WSL\\Arch\\icon.ico",
                 "name": "Arch",
                 "startingDirectory": "~"
             }
@@ -432,5 +439,49 @@
             "yellow": "#808000"
         }
     ],
-    "themes": []
+    "themes": 
+    [
+        {
+            "name": "legacyDark",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "useMica": false
+            }
+        },
+        {
+            "name": "legacyLight",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "light",
+                "useMica": false
+            }
+        },
+        {
+            "name": "legacySystem",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "system",
+                "useMica": false
+            }
+        }
+    ]
 }

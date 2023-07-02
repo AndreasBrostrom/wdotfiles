@@ -24,7 +24,7 @@ if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -e
         Set-Alias -Name ls -Value alias_fnc_ls
     }
     function ll   { Invoke-Expression "Get-ChildItem $args -Force" }
-    function la   { Invoke-Expression "Get-ChildItem $args -Force| Format-Wide -AutoSize" }
+    function la   { Invoke-Expression "Get-ChildItem $args -Force | Format-Wide -AutoSize" }
     function l    { Invoke-Expression "Get-ChildItem $args" }
 } else {
     # if you have coreutils ls
