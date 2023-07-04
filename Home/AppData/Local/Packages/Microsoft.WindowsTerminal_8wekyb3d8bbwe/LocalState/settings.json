@@ -18,10 +18,10 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
+                "action": "switchToTab",
+                "index": 7
             },
-            "keys": "ctrl+shift+c"
+            "keys": "alt+8"
         },
         {
             "command": "unbound",
@@ -38,18 +38,10 @@
         {
             "command": 
             {
-                "action": "switchToTab",
-                "index": 7
+                "action": "copy",
+                "singleLine": false
             },
-            "keys": "alt+8"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 8
-            },
-            "keys": "alt+9"
+            "keys": "ctrl+shift+c"
         },
         {
             "command": 
@@ -64,13 +56,21 @@
             "command": 
             {
                 "action": "switchToTab",
-                "index": 0
+                "index": 8
             },
-            "keys": "alt+1"
+            "keys": "alt+9"
         },
         {
             "command": "find",
             "keys": "ctrl+shift+f"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 0
+            },
+            "keys": "alt+1"
         },
         {
             "command": 
@@ -81,16 +81,16 @@
             "keys": "alt+3"
         },
         {
-            "command": "closePane",
-            "keys": "ctrl+d"
-        },
-        {
             "command": 
             {
                 "action": "switchToTab",
                 "index": 5
             },
             "keys": "alt+6"
+        },
+        {
+            "command": "closePane",
+            "keys": "ctrl+d"
         },
         {
             "command": 
@@ -197,7 +197,8 @@
                 "hidden": false,
                 "icon": "C:\\Programs\\Opt\\WSL\\Arch\\icon.ico",
                 "name": "Arch",
-                "startingDirectory": "~"
+                "startingDirectory": "~",
+                "tabTitle": "Arch"
             }
         ]
     },
