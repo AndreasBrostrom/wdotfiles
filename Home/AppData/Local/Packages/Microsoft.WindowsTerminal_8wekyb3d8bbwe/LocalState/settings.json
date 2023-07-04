@@ -69,6 +69,10 @@
             "keys": "alt+1"
         },
         {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
             "command": 
             {
                 "action": "switchToTab",
@@ -81,8 +85,12 @@
             "keys": "ctrl+d"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 5
+            },
+            "keys": "alt+6"
         },
         {
             "command": 
@@ -105,14 +113,6 @@
                 "split": "down"
             },
             "keys": "ctrl+shift+o"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 5
-            },
-            "keys": "alt+6"
         },
         {
             "command": 
@@ -184,6 +184,7 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
+                "commandline": "C:\\Windows\\system32\\wsl.exe -d Ubuntu",
                 "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
                 "hidden": true,
                 "name": "Ubuntu",
@@ -194,21 +195,9 @@
                 "commandline": "C:\\Windows\\system32\\wsl.exe -d arch",
                 "guid": "{12126dd9-2691-4f1c-91f4-9d4b6505a8fd}",
                 "hidden": false,
-                "icon": "C:\\Programs\\Src\\WSL\\Arch\\icon.ico",
+                "icon": "C:\\Programs\\Opt\\WSL\\Arch\\icon.ico",
                 "name": "Arch",
                 "startingDirectory": "~"
-            },
-            {
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": true,
-                "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
-                "hidden": false,
-                "name": "Arch",
-                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
