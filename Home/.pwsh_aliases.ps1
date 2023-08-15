@@ -72,7 +72,3 @@ function global:gtar()      { git ls-files -m | tar -cvf unsraged.tar -T - }
 function global:ghc()       { gcpr }
 function global:ghr()       { gh pr review }
 function global:ghm()       { gh pr merge }
-
-
-# Linux commands
-function global:cal { bash -c "cal $args" }
