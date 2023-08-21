@@ -1,6 +1,5 @@
 add_newline = false
-command_timeout = 1200
-ignore_timeout = false
+command_timeout = 2000
 
 [character]
 success_symbol = "[PS >](bold green)"
