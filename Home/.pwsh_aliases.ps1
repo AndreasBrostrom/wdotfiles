@@ -47,7 +47,7 @@ function global:grm()       { git rebase $(split-path $( git symbolic-ref "refs/
 function global:gpu()       { git push $args }
 function global:gpuf()      { git push fork $args }
 function global:gpuff()     { git push --set-upstream fork $(git rev-parse --abbrev-ref HEAD) $args }
-function global:gpull       { git pull }
+function global:gpull()     { git pull }
 
 function global:gp()        { git stash $args }
 function global:gpp()       { git stash pop $args }
