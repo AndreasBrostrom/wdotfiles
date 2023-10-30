@@ -58,6 +58,11 @@ if ($PSVersionTable.PSVersion.major -gt 6) {
 function reboot { shutdown.exe /r /t 0 $args }
 Set-Alias -Name ifconfig -Value Get-NetIPConfiguration -Scope 'Global'
 
+function cal {
+    $distPackageManagers = "cal $args"
+    Start-Process -NoNewWindow -Wait -FilePath wsl.exe -ArgumentList "--distribution arch", "--user root", "-- $distPackageManagers" 
+}
+
 
 # Aliases and Path
 if (Test-Path "$ENV:USERPROFILE/.pwsh_aliases.ps1" -PathType leaf) {
