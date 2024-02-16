@@ -7,12 +7,6 @@ if ( !$IsLinux ) {
     }
 }
 
-if ( $IsLinux ) {
-    $ENV:USERNAME = $ENV:USER
-    $ENV:USERPROFILE = $(Get-Variable HOME -valueOnly)              # assume homefolder folder
-    $ENV:LOCALAPPDATA = "$(Get-Variable HOME -valueOnly)/.config"   # assume config folder
-}
-
 # Windows linux conversions
 $curren_path = ($pwd).path
 if (!(Compare-Object "$curren_path" "C:/Windows/system32")) { set-location "$env:userprofile" }
