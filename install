@@ -8,6 +8,6 @@ cd $SCRIPT_DIR/Home
 ln -sf "$SCRIPT_DIR/Home/.pwshrc.ps1"       "$HOME/.config/powershell/rc.ps1"
 ln -sf "$SCRIPT_DIR/Home/.pwsh_aliases.ps1" "$HOME/.config/powershell/aliases.ps1"
 
-ln -sf "$SCRIPT_DIR/Home/AppData/Local/starship_pwsh.toml" "$HOME/.config/starship_pwsh.ps1"
+ln -sf "$SCRIPT_DIR/Home/AppData/Local/starship_pwsh.toml" "$HOME/.config/starship_pwsh.toml"
 
 cd $SCRIPT_DIR
