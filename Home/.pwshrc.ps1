@@ -49,12 +49,9 @@ if ($PSVersionTable.PSVersion.major -gt 6) {
 
 
 # Windows Unix extentions
-function reboot { shutdown.exe /r /t 0 $args }
-Set-Alias -Name ifconfig -Value Get-NetIPConfiguration -Scope 'Global'
-
-function cal {
-    $distPackageManagers = "cal $args"
-    Start-Process -NoNewWindow -Wait -FilePath wsl.exe -ArgumentList "--distribution arch", "--user root", "-- $distPackageManagers" 
+if ( !$IsLinux ) {
+    function reboot { shutdown.exe /r /t 0 $args }
+    Set-Alias -Name ifconfig -Value Get-NetIPConfiguration -Scope 'Global'
 }
 
 
