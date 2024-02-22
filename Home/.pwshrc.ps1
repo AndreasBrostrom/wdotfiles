@@ -7,10 +7,6 @@ if ( !$IsLinux ) {
     }
 }
 
-# Windows linux conversions
-$curren_path = ($pwd).path
-if (!(Compare-Object "$curren_path" "C:/Windows/system32")) { set-location "$env:userprofile" }
-
 # LS handling
 if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -eq $null ) {
     if ($PSVersionTable.PSVersion.major -gt 6) {
