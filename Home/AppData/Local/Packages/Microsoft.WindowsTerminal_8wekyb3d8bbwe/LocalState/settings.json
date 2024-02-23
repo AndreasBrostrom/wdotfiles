@@ -6,6 +6,14 @@
         {
             "command": 
             {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+shift+c"
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "right"
             },
@@ -38,10 +46,14 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
+                "action": "splitPane",
+                "split": "down"
             },
-            "keys": "ctrl+shift+c"
+            "keys": "ctrl+shift+o"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": 
@@ -61,10 +73,6 @@
             "keys": "alt+9"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "command": 
             {
                 "action": "switchToTab",
@@ -79,6 +87,14 @@
                 "index": 2
             },
             "keys": "alt+3"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 6
+            },
+            "keys": "alt+7"
         },
         {
             "command": 
@@ -109,22 +125,6 @@
         {
             "command": 
             {
-                "action": "splitPane",
-                "split": "down"
-            },
-            "keys": "ctrl+shift+o"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 6
-            },
-            "keys": "alt+7"
-        },
-        {
-            "command": 
-            {
                 "action": "switchToTab",
                 "index": 4
             },
@@ -146,15 +146,22 @@
     "focusFollowMouse": true,
     "initialCols": 164,
     "initialRows": 50,
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": 
         {
+            "bellStyle": "none",
             "colorScheme": "One Half Dark",
             "font": 
             {
                 "face": "DejaVuSansMono Nerd Font Mono",
-                "size": 10
+                "size": 10.0
             }
         },
         "list": 
@@ -182,14 +189,6 @@
                 "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
-            },
-            {
-                "commandline": "C:\\Windows\\system32\\wsl.exe -d Ubuntu",
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
-                "hidden": true,
-                "name": "Ubuntu",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
-                "startingDirectory": "~"
             },
             {
                 "commandline": "C:\\Windows\\system32\\wsl.exe -d arch",
@@ -434,5 +433,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "themes": []
 }
