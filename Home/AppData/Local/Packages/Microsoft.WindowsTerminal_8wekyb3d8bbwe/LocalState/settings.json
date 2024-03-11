@@ -4,6 +4,34 @@
     "actions": 
     [
         {
+            "command": "unbound",
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+insert"
+        },
+        {
+            "command": "unbound",
+            "keys": "shift+insert"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down"
+            },
+            "keys": "ctrl+shift+o"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 7
+            },
+            "keys": "alt+8"
+        },
+        {
             "command": 
             {
                 "action": "copy",
@@ -26,43 +54,15 @@
         {
             "command": 
             {
-                "action": "switchToTab",
-                "index": 7
-            },
-            "keys": "alt+8"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+w"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+insert"
-        },
-        {
-            "command": "unbound",
-            "keys": "shift+insert"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "down"
-            },
-            "keys": "ctrl+shift+o"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": 
-            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": 
@@ -79,6 +79,12 @@
                 "index": 0
             },
             "keys": "alt+1"
+        },
+        {
+            "command": 
+            {
+                "action": "globalSummon"
+            }
         },
         {
             "command": 
@@ -115,12 +121,6 @@
                 "index": 3
             },
             "keys": "alt+4"
-        },
-        {
-            "command": 
-            {
-                "action": "globalSummon"
-            }
         },
         {
             "command": 
@@ -194,10 +194,16 @@
                 "commandline": "C:\\Windows\\system32\\wsl.exe -d arch",
                 "guid": "{12126dd9-2691-4f1c-91f4-9d4b6505a8fd}",
                 "hidden": false,
-                "icon": "C:\\Programs\\Opt\\WSL\\Arch\\icon.ico",
+                "icon": "C:\\Programs\\.icon\\icon.ico",
                 "name": "Arch",
                 "startingDirectory": "~",
                 "tabTitle": "Arch"
+            },
+            {
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             }
         ]
     },
