@@ -1,2 +1,2 @@
 # Home bin
-$Env:PATH =+ ";$Env:USERPROFILE\.bin"
+$Env:PATH += ";$Env:USERPROFILE\.bin"
