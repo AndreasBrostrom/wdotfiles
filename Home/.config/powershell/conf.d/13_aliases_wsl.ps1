@@ -14,5 +14,6 @@ if ( !$IsLinux ) {
         Start-Process -NoNewWindow -Wait -FilePath wsl.exe -ArgumentList "-d arch", "-- $distPackageManagers"
     }
 
-    function cal { wsl -d arch cal $args} 
+    # Programs
+    function cal { wsl -d arch cal $args } 
 }
