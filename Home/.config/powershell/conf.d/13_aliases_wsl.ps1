@@ -1,10 +1,16 @@
 
 if ( !$IsLinux ) {
-    function arch { wsl -d arch $args}
-    function ubuntu { wsl -d ubuntu $args}
+    function arch { wsl -d arch $args }
+    function ubuntu { wsl -d ubuntu $args }
 
-    function fish { wsl -d arch eval "fish -C $args" }
-    function bash { wsl -d arch eval "bash -c $args" }
+    function fish {
+        $distPackageManagers = "eval 'fish -C $args'"
+        Start-Process -NoNewWindow -Wait -FilePath wsl.exe -ArgumentList "--distribution arch", "-- $distPackageManagers"
+    }
+    function bash {
+        $distPackageManagers = "eval 'bash -c $args'"
+        Start-Process -NoNewWindow -Wait -FilePath wsl.exe -ArgumentList "--distribution arch", "-- $distPackageManagers"
+    }
 
     function cal { wsl -d arch eval "cal -C $args"} 
 }
