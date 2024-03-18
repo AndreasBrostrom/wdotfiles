@@ -8,7 +8,7 @@ if ( !$IsLinux ) {
 }
 
 # Read Configs
-$configDir = "$Env:USERPROFILE/.config/powershell/conf.d//"
+$configDir = "$Env:USERPROFILE/.config/powershell/conf.d/"
 if (Test-Path -Path $configDir) {
     $configs = Get-ChildItem "$Env:USERPROFILE/.config/powershell/conf.d/" -File -Filter "*.ps1"
     foreach ($config in $configs) { . "$config" }
