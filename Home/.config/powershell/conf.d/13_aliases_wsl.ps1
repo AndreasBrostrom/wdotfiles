@@ -5,13 +5,13 @@ if ( !$IsLinux ) {
 
     function fish {
         if ($args.count -eq 0) { wsl -d arch fish; return}
-        $distPackageManagers = "eval 'fish -C $args'"
-        Start-Process -NoNewWindow -Wait -FilePath wsl.exe -ArgumentList "-d arch", "-- $distPackageManagers"
+        $command = "eval 'fish -c $args'"
+        Start-Process -NoNewWindow -Wait -FilePath wsl.exe -ArgumentList "-d arch", "-- $command"
     }
     function bash {
         if ($args.count -eq 0) { wsl -d arch bash; return}
-        $distPackageManagers = "eval 'bash -c $args'"
-        Start-Process -NoNewWindow -Wait -FilePath wsl.exe -ArgumentList "-d arch", "-- $distPackageManagers"
+        $command = "eval 'bash -c $args'"
+        Start-Process -NoNewWindow -Wait -FilePath wsl.exe -ArgumentList "-d arch", "-- $command"
     }
 
     # Programs
