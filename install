@@ -5,8 +5,13 @@ cd $SCRIPT_DIR
 echo -e "\033[34;1mInstalling $(basename $SCRIPT_DIR)...\033[0m"
 
 cd $SCRIPT_DIR/Home
-ln -sf "$SCRIPT_DIR/Home/.pwshrc.ps1"       "$HOME/.config/powershell/rc.ps1"
-ln -sf "$SCRIPT_DIR/Home/.pwsh_aliases.ps1" "$HOME/.config/powershell/aliases.ps1"
+
+mkdir -p $HOME/.config/powershell/conf.d/
+mkdir -p $HOME/.config/powershell/functions/
+
+ln -sf $SCRIPT_DIR/Home/.config/powershell/config.ps1 $HOME/.config/powershell/config.ps1
+ln -sf $SCRIPT_DIR/Home/.config/powershell/conf.d/* $HOME/.config/powershell/conf.d/.
+ln -sf $SCRIPT_DIR/Home/.config/powershell/conf.d/* $HOME/.config/powershell/conf.d/.
 
 ln -sf "$SCRIPT_DIR/Home/AppData/Local/starship_pwsh.toml" "$HOME/.config/starship_pwsh.toml"
 
