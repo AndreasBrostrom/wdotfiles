@@ -1,5 +1,6 @@
 
 if ( !$IsLinux ) {
+
     function arch { wsl -d arch $args }
     function ubuntu { wsl -d ubuntu $args }
 
@@ -15,5 +16,6 @@ if ( !$IsLinux ) {
     }
 
     # Programs
-    function cal { wsl -d arch cal $args } 
+    function cal { wsl -d arch cal $args }
+
 }

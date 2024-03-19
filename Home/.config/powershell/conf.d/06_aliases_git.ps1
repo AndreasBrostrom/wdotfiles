@@ -1,8 +1,8 @@
 
 # Git aliases
 if ($PSVersionTable.PSVersion.major -gt 6) {
-    if (Test-Path alias:gc) { Remove-Alias gc -Force }
-    if (Test-Path alias:gp) { Remove-Alias gp -Force }
+    if (Test-Path alias:gc)  { Remove-Alias gc -Force }
+    if (Test-Path alias:gp)  { Remove-Alias gp -Force }
     if (Test-Path alias:gcm) { Remove-Alias gcm -Force }
 }
 

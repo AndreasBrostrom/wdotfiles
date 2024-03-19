@@ -1,6 +1,6 @@
 
 # LS binary vs alias usage
-if ((Get-Command ls -CommandType "Application" -ErrorAction SilentlyContinue) -eq $null ) {
+if ( ! exist ls ) {
     if ($PSVersionTable.PSVersion.major -gt 6) {
         function alias_fnc_ls { Invoke-Expression "Get-ChildItem $args | Format-Wide -AutoSize" }
         Set-Alias -Name ls -Value alias_fnc_ls
@@ -37,8 +37,10 @@ function global:cdll() {
     ll
 }
 
+Set-Alias -Name clr -value clear -Scope 'Global'
+
 # rm and rmdir binary vs alias usage
 if ($PSVersionTable.PSVersion.major -gt 6) {
-    if ((Get-Command rm    -CommandType "Application" -ErrorAction SilentlyContinue) -eq $null ) { Remove-Alias -Name rm }
-    if ((Get-Command rmdir -CommandType "Application" -ErrorAction SilentlyContinue) -eq $null ) { Remove-Alias -Name rmdir }
+    if ( exist rm    ) { Remove-Alias -Name rm }
+    if ( exist rmdir ) { Remove-Alias -Name rmdir }
 }

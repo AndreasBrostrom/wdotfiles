@@ -11,7 +11,7 @@ mkdir -p $HOME/.config/powershell/functions/
 
 ln -sf $SCRIPT_DIR/Home/.config/powershell/config.ps1 $HOME/.config/powershell/config.ps1
 ln -sf $SCRIPT_DIR/Home/.config/powershell/conf.d/* $HOME/.config/powershell/conf.d/.
-ln -sf $SCRIPT_DIR/Home/.config/powershell/conf.d/* $HOME/.config/powershell/conf.d/.
+ln -sf $SCRIPT_DIR/Home/.config/powershell/functions/* $HOME/.config/powershell/functions/.
 
 ln -sf "$SCRIPT_DIR/Home/AppData/Local/starship_pwsh.toml" "$HOME/.config/starship_pwsh.toml"
 

@@ -10,4 +10,5 @@ if ( !$IsLinux ) {
     function global:skill() {
         sudo Stop-Service -force -name $args
     }
+
 }
