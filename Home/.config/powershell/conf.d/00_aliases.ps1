@@ -1,6 +1,6 @@
 
 # LS binary vs alias usage
-if ( ! exist ls ) {
+if ( -not exist ls ) {
     if ($PSVersionTable.PSVersion.major -gt 6) {
         function alias_fnc_ls { Invoke-Expression "Get-ChildItem $args | Format-Wide -AutoSize" }
         Set-Alias -Name ls -Value alias_fnc_ls

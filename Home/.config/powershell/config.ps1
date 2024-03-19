@@ -7,18 +7,18 @@ if ( !$IsLinux ) {
     }
 }
 
-# Read Configs
-$configDir = "$Env:USERPROFILE/.config/powershell/conf.d/"
-if (Test-Path -Path $configDir) {
-    $configs = Get-ChildItem $configDir -File -Filter "*.ps1"
-    foreach ($config in $configs) { . "$config" }
-}
-
 # Read Functions
 $functionDir = "$Env:USERPROFILE/.config/powershell/functions/"
 if (Test-Path -Path $functionDir) {
     $functions = Get-ChildItem $functionDir -File -Filter "*.ps1"
     foreach ($function in $functions) { . "$function" }
+}
+
+# Read Configs
+$configDir = "$Env:USERPROFILE/.config/powershell/conf.d/"
+if (Test-Path -Path $configDir) {
+    $configs = Get-ChildItem $configDir -File -Filter "*.ps1"
+    foreach ($config in $configs) { . "$config" }
 }
 
 $Env:STARSHIP_CONFIG = "$Env:LOCALAPPDATA/starship_pwsh.toml"
