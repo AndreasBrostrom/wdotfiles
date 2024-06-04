@@ -11,4 +11,14 @@ if ( !$IsLinux ) {
         sudo Stop-Service -force -name $args
     }
 
+    function global:cal() {
+        if ($args) {
+            python -m calendar $args
+            exit 0
+        }
+        $month = (Get-Date -Format "MM")
+        $year = (Get-Date -Format "yyyy")
+        python -m calendar $year $month
+    }
+
 }
