@@ -1,3 +1,3 @@
 
-# Make sure this is always read last so it overwrites other programs
-$Env:PATH += ";$Env:USERPROFILE/.bin"
+# Make sure this is always read first so it overwrites other programs
+$Env:PATH = "$Env:USERPROFILE\.bin;$Env:PATH"
