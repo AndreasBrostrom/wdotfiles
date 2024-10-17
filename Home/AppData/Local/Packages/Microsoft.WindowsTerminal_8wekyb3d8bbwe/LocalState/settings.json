@@ -25,6 +25,18 @@
             "keys": "shift+insert"
         },
         {
+            "command": "unbound",
+            "keys": "ctrl+d"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+shift+d"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+d"
+        },
+        {
             "command": 
             {
                 "action": "copy",
@@ -68,8 +80,7 @@
                 "split": "auto",
                 "splitMode": "duplicate"
             },
-            "id": "User.splitPane.A6751878",
-            "keys": "alt+shift+d"
+            "id": "User.splitPane.A6751878"
         },
         {
             "command": 
@@ -84,7 +95,8 @@
             "command": 
             {
                 "action": "globalSummon"
-            }
+            },
+            "id": "User.globalSummon.51A3D78C"
         },
         {
             "command": 
@@ -124,8 +136,7 @@
         },
         {
             "command": "closePane",
-            "id": "User.closePane",
-            "keys": "ctrl+d"
+            "id": "User.closePane"
         },
         {
             "command": 
